@@ -1,4 +1,6 @@
 en:
+  app_name: BooksApp
+
   helpers:
     submit:
       create: Create %{model}
@@ -15,3 +17,24 @@ en:
         memo: Memo
         picture: Picture
         title: Title
+
+  books:
+    actions: &book_actions
+      new: :books.new.title
+      show: Show
+      edit: Edit
+      destroy: Destroy
+      back: Back
+      confirm: Are you sure?
+
+    index:
+      <<: *book_actions
+      title: Books
+    new:
+      <<: *book_actions
+      title: New Book
+    show:
+      <<: *book_actions
+    edit:
+      <<: *book_actions
+      title: Editing Book

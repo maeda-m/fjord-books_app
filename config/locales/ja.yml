@@ -1,4 +1,6 @@
 ja:
+  app_name: 書籍管理アプリ
+
   helpers:
     submit:
       create: 登録する
@@ -15,3 +17,24 @@ ja:
         memo: メモ
         picture: 写真
         title: タイトル
+
+  books:
+    actions: &book_actions
+      new: :books.new.title
+      show: 詳細
+      edit: 編集
+      destroy: 削除
+      back: 戻る
+      confirm: 本当によろしいでしょうか？
+
+    index:
+      <<: *book_actions
+      title: 書籍一覧
+    new:
+      <<: *book_actions
+      title: あたらしい書籍
+    show:
+      <<: *book_actions
+    edit:
+      <<: *book_actions
+      title: 編集中の書籍
