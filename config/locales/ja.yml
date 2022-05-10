@@ -1,0 +1,17 @@
+ja:
+  helpers:
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+
+  activerecord:
+    models:
+      book: 本
+
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 写真
+        title: タイトル
