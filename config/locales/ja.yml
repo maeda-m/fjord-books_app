@@ -33,8 +33,14 @@ ja:
     new:
       <<: *book_actions
       title: あたらしい書籍
+    create:
+      success: 登録しました。
     show:
       <<: *book_actions
     edit:
       <<: *book_actions
       title: 編集中の書籍
+    update:
+      success: 更新しました。
+    destroy:
+      success: 削除しました。

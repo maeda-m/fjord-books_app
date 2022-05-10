@@ -33,8 +33,14 @@ en:
     new:
       <<: *book_actions
       title: New Book
+    create:
+      success: Book was successfully created.
     show:
       <<: *book_actions
     edit:
       <<: *book_actions
       title: Editing Book
+    update:
+      success: Book was successfully updated.
+    destroy:
+      success: Book was successfully destroyed.
