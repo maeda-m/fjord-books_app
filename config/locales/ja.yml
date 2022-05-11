@@ -212,6 +212,7 @@ ja:
       destroy: 削除
       new: 新規作成
       back: 戻る
+      sign_out: ログアウト
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"

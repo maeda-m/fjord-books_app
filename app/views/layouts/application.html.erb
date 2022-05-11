@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= link_to t('views.common.sign_out'), destroy_user_session_path,
+        method: :delete, style: 'float: right;' if user_signed_in? %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
