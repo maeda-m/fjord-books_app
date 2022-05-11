@@ -3,6 +3,6 @@
   <%= @user.email %>
 </p>
 
-<%= render if profile = @user.profile.presence %>
+<%= render 'profiles/show', profile: @user.profile %>
 
 <%= link_to t('views.common.back'), users_path %>
