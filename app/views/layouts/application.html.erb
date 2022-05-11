@@ -11,8 +11,12 @@
 
   <body>
     <header>
-      <%= link_to t('views.common.sign_out'), destroy_user_session_path,
-        method: :delete, style: 'float: right;' if user_signed_in? %>
+      <% if user_signed_in? %>
+        <%= link_to Book.model_name.human, books_path %>
+        <%= link_to User.model_name.human, users_path %>
+        <%= link_to t('views.common.sign_out'), destroy_user_session_path,
+          method: :delete, style: 'float: right;' %>
+      <% end %>
     </header>
     <main>
       <p id="notice"><%= notice %></p>
