@@ -1,0 +1,8 @@
+<p>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
+  <%= @user.email %>
+</p>
+
+<%= render @user.profile %>
+
+<%= link_to t('views.common.back'), users_path %>
