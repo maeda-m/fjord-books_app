@@ -42,6 +42,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -56,4 +57,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
+gem 'devise', '~> 4.8'
 gem 'kaminari'
