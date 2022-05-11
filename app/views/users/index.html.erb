@@ -13,7 +13,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.profile.description %></td>
+        <td><%= user.profile.try(:description) %></td>
         <td><%= link_to t('views.common.show'), user %></td>
       </tr>
     <% end %>
