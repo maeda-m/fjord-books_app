@@ -15,6 +15,8 @@
         method: :delete, style: 'float: right;' if user_signed_in? %>
     </header>
     <main>
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
       <%= yield %>
     </main>
   </body>
