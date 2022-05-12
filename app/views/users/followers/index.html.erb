@@ -1,0 +1,3 @@
+<h1><%= t('views.users.followers.index', name: @name, count: @followers.count) %></h1>
+
+<%= render '/users/table', users: @followers %>
