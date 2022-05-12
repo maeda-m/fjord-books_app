@@ -43,9 +43,9 @@
   <%= link_to t('views.common.edit'), edit_user_registration_path %>
 <% else %>
   <% if current_user.followed?(@user) %>
-    <%= link_to t('views.users.followings.destroy'), user_followings_path(@user), class: 'unfollow', method: :delete %>
+    <%= link_to t('views.users.followings.destroy'), user_followings_path(@user), method: :delete %>
   <% else %>
-    <%= button_to t('views.users.followings.create'), user_followings_path(@user), class: 'follow' %>
+    <%= link_to t('views.users.followings.create'), user_followings_path(@user), method: :post %>
   <% end %>
 <% end %>
 |
