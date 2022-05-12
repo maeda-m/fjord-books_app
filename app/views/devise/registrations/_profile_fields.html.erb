@@ -1,6 +1,7 @@
 <div class="field">
   <%= f.label :avatar %>
   <%= f.file_field :avatar %>
+  <%= render_avatar f.object.avatar %>
 </div>
 
 <div class="field">
