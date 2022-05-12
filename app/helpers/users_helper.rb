@@ -13,7 +13,8 @@ module UsersHelper
               avatar.variant(resize_to_limit: size)
             end
 
-    content_tag :figure do
+    css = [controller_name, action_name].join('-')
+    content_tag :figure, class: css do
       image_tag image, alt: alt
     end
   end
