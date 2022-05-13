@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1
   def show
-    @report = Report.find(params[:id])
+    @report = Report.includes(comments: :user).find(params[:id])
   end
 
   # GET /reports/new

@@ -22,3 +22,8 @@
 
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>
+
+<hr>
+
+<%= render '/comments/index', comments: @book.comments %>
+<%= render '/comments/new', comment: @book.comments.build %>

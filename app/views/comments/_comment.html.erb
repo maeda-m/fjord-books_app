@@ -1,0 +1,21 @@
+<article>
+  <footer>
+    <p>
+      <strong><%= Comment.human_attribute_name(:user_id) %>:</strong>
+      <%= comment.user.name.presence || comment.user.email %>
+    </p>
+    <p>
+      <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+      <%= comment.created_at %>
+    </p>
+
+    <% if comment.author?(current_user) %>
+      <%= link_to t('views.common.edit'), edit_comment_path(comment) %> |
+      <%= link_to t('views.common.destroy'), comment, method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+    <% end %>
+  </footer>
+
+  <pre>
+    <%= comment.content %>
+  </pre>
+</article>

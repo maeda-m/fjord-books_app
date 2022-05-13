@@ -1,0 +1,15 @@
+<% commentable = comment.commentable %>
+
+<%= form_with(model: comment) do |form| %>
+  <%= form.hidden_field :commentable_id, value: commentable.id %>
+  <%= form.hidden_field :commentable_type, value: commentable.class.to_s %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, size: '70x5' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

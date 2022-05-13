@@ -24,3 +24,8 @@
   <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>
+
+<hr>
+
+<%= render '/comments/index', comments: @report.comments %>
+<%= render '/comments/new', comment: @report.comments.build %>

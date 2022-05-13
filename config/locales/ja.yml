@@ -250,6 +250,8 @@ ja:
       notice: "フォローしました。"
     destroy:
       notice: "フォロー解除しました。"
+  comments:
+    empty_message: まだコメントはありません。
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
