@@ -4,12 +4,19 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
 
   def create
-    comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params)
 
-    if comment.save
-      redirect_to comment.commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    if @comment.save
+      redirect_to @comment.commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      # TODO
+      case @comment.commentable_type
+      when 'Book'
+        @book = @comment.commentable
+        render 'books/show'
+      when 'Report'
+        @report = @comment.commentable
+        render 'reports/show'
+      end
     end
   end
 

@@ -26,4 +26,4 @@
 <hr>
 
 <%= render '/comments/index', comments: @book.comments %>
-<%= render '/comments/new', comment: @book.comments.build %>
+<%= render '/comments/new', comment: @comment || @book.comments.build %>

@@ -28,4 +28,4 @@
 <hr>
 
 <%= render '/comments/index', comments: @report.comments %>
-<%= render '/comments/new', comment: @report.comments.build %>
+<%= render '/comments/new', comment: @comment || @report.comments.build %>
