@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 class Comment < ApplicationRecord
-  delegated_type :commentable, types: %w[Book Report]
+  COMMENTABLE_TYPES = %w[Book Report]
+  delegated_type :commentable, types: COMMENTABLE_TYPES
+
   belongs_to :user
 
+  validates :commentable_type, inclusion: { in: COMMENTABLE_TYPES }
   validates :content, presence: true
 
   def author?(operator)

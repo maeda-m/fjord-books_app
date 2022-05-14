@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
 
   def create
-    @comment = current_user.comments.build(comment_params)
+    @comment = current_user.comments.build(comment_create_params)
 
     if @comment.save
       redirect_to @comment.commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
@@ -16,6 +16,8 @@ class CommentsController < ApplicationController
       when 'Report'
         @report = @comment.commentable
         render 'reports/show'
+      else
+        render_404
       end
     end
   end
@@ -23,7 +25,7 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    if @comment.update(comment_params)
+    if @comment.update(comment_update_params)
       redirect_to @comment.commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
       render :edit
@@ -41,7 +43,11 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.find(params[:id])
   end
 
-  def comment_params
+  def comment_create_params
     params.require(:comment).permit(:content, :commentable_id, :commentable_type)
+  end
+
+  def comment_update_params
+    comment_create_params.permit(:content)
   end
 end
