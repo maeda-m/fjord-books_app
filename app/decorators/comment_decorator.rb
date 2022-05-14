@@ -2,6 +2,8 @@
 
 module CommentDecorator
   def user_name
+    return t('comments.canceled_user') unless user
+
     user.name.presence || user.email
   end
 
