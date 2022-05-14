@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Comment < ApplicationRecord
-  COMMENTABLE_TYPES = %w[Book Report]
+  COMMENTABLE_TYPES = %w[Book Report].freeze
   delegated_type :commentable, types: COMMENTABLE_TYPES
 
   belongs_to :user

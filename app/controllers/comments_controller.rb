@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
         @report = @comment.commentable
         render 'reports/show'
       else
-        render_404
+        render_not_found
       end
     end
   end
