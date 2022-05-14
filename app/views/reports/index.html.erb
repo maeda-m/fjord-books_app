@@ -15,7 +15,7 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= report.title %></td>
-        <td><%= report.content %></td>
+        <td><%= truncate report.content %></td>
         <td><%= report.user.name %></td>
         <td><time><%= report.created_date %></time></td>
         <td><%= link_to t('views.common.show'), report %></td>
