@@ -4,14 +4,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
   # GET /books
-  # GET /books.json
   def index
-    @books = Book.all.order(:id)
-
-    respond_to do |format|
-      format.html { @books = @books.page(params[:page]) }
-      format.json
-    end
+    @books = Book.order(:id).page(params[:page])
   end
 
   # GET /books/1
