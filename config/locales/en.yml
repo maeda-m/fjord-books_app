@@ -7,6 +7,24 @@ en:
       submit: Save %{model}
       update: Update %{model}
 
+  views:
+    common:
+      new: Create New
+      show: Show
+      edit: Edit
+      destroy: Destroy
+      back: Back
+      confirm: Are you sure?
+
+  controllers:
+    common:
+      create:
+        notice_success: Successfully created.
+      update:
+        notice_success: Successfully updated.
+      destroy:
+        notice_success: Successfully destroyed.
+
   activerecord:
     models:
       book: Book
@@ -19,28 +37,9 @@ en:
         title: Title
 
   books:
-    actions: &book_actions
-      new: :books.new.title
-      show: Show
-      edit: Edit
-      destroy: Destroy
-      back: Back
-      confirm: Are you sure?
-
     index:
-      <<: *book_actions
       title: Books
     new:
-      <<: *book_actions
       title: New Book
-    create:
-      success: Book was successfully created.
-    show:
-      <<: *book_actions
     edit:
-      <<: *book_actions
       title: Editing Book
-    update:
-      success: Book was successfully updated.
-    destroy:
-      success: Book was successfully destroyed.
