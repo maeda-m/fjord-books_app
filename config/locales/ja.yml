@@ -16,6 +16,15 @@ ja:
       back: 戻る
       confirm: 本当によろしいでしょうか？
 
+  controllers:
+    common:
+      create:
+        notice_success: 登録しました。
+      update:
+        notice_success: 更新しました。
+      destroy:
+        notice_success: 削除しました。
+
   activerecord:
     models:
       book: 本
@@ -32,11 +41,5 @@ ja:
       title: 書籍一覧
     new:
       title: あたらしい書籍
-    create:
-      success: 登録しました。
     edit:
       title: 編集中の書籍
-    update:
-      success: 更新しました。
-    destroy:
-      success: 削除しました。
