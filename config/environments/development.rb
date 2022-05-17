@@ -38,6 +38,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Preview email in the default browser instead of sending it.
+  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

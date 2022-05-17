@@ -10,6 +10,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if user_signed_in? %>
+        <%= link_to Book.model_name.human, books_path %>
+        <%= link_to User.model_name.human, users_path %>
+        <%= link_to Profile.model_name.human, edit_user_registration_path %>
+        <%= link_to t('views.common.sign_out'), destroy_user_session_path,
+          method: :delete, style: 'float: right;' %>
+      <% end %>
+    </header>
+    <main>
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
   </body>
 </html>
