@@ -7,6 +7,15 @@ ja:
       submit: 保存する
       update: 更新する
 
+  views:
+    common:
+      new: 新規作成
+      show: 詳細
+      edit: 編集
+      destroy: 削除
+      back: 戻る
+      confirm: 本当によろしいでしょうか？
+
   activerecord:
     models:
       book: 本
@@ -19,26 +28,13 @@ ja:
         title: タイトル
 
   books:
-    actions: &book_actions
-      new: :books.new.title
-      show: 詳細
-      edit: 編集
-      destroy: 削除
-      back: 戻る
-      confirm: 本当によろしいでしょうか？
-
     index:
-      <<: *book_actions
       title: 書籍一覧
     new:
-      <<: *book_actions
       title: あたらしい書籍
     create:
       success: 登録しました。
-    show:
-      <<: *book_actions
     edit:
-      <<: *book_actions
       title: 編集中の書籍
     update:
       success: 更新しました。
