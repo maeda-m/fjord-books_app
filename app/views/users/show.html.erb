@@ -1,5 +1,7 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 
+<%= render_avatar(@user.avatar, width: 100, height: 100) %>
+
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
   <%= @user.email %>
