@@ -239,6 +239,8 @@ ja:
     followings:
       notice_create: フォローしました。
       notice_destroy: フォローを解除しました。
+      alert_create: すでにフォロー済みか存在しないユーザーです。
+      alert_destroy: 予期しないエラーが発生しました。
   layouts:
     application:
       menu: メニュー
