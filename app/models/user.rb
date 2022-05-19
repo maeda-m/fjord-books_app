@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :followings, through: :following_users, source: :followee
   has_many :followers, through: :follower_users, source: :follower
 
-  def followed?(user)
+  def following?(user)
     following_ids.include?(user.id)
   end
 end
