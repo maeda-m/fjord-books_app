@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def following?(user)
     following_ids.include?(user.id)
   end
+
+  def follow(user_id)
+    following_users.create!(followee_id: user_id)
+  end
+
+  def unfollow(user_id)
+    following_users.find_by!(followee_id: user_id).destroy
+  end
 end
