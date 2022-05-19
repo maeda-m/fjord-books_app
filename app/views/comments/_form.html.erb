@@ -3,9 +3,6 @@
 <%= form_with(model: [commentable, comment]) do |form| %>
   <%= render '/shared/error_message', record: comment %>
 
-  <%= form.hidden_field :commentable_id, value: commentable.id %>
-  <%= form.hidden_field :commentable_type, value: commentable.class.to_s %>
-
   <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content, size: '70x5', required: true %>
