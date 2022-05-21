@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: keys)
   end
 
+  def render_not_found
+    render file: Rails.root.join('public/404.html'), layout: false, status: :not_found
+  end
+
   private
 
   def after_sign_in_path_for(_resource_or_scope)

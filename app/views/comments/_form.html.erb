@@ -1,0 +1,14 @@
+<% commentable = comment.commentable %>
+
+<%= form_with(model: [commentable, comment]) do |form| %>
+  <%= render '/shared/error_message', record: comment %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, size: '70x5', required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
