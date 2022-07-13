@@ -224,11 +224,21 @@ ja:
       previous: '前'
       next: '次'
       truncate: '...'
+    users:
+      followings:
+        index: "%{name}のフォロー一覧（%{count}）"
+        create: フォローする
+        destroy: フォローを解除する
+      followers:
+        index: "%{name}のフォロワー一覧（%{count}）"
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+    followings:
+      notice_create: フォローしました。
+      notice_destroy: フォローを解除しました。
   layouts:
     application:
       menu: メニュー

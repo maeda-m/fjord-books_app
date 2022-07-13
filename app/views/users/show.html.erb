@@ -33,7 +33,20 @@
   <% end %>
 </p>
 
+<p>
+<%= link_to t('views.users.followings.index', name: @user.name, count: @user.followings.size), user_followings_path(@user) %>
+|
+<%= link_to t('views.users.followers.index', name: @user.name, count: @user.followers.size), user_followers_path(@user) %>
+</p>
+
 <% if current_user == @user %>
-  <%= link_to t('views.common.edit'), edit_user_registration_path %> |
+  <%= link_to t('views.common.edit'), edit_user_registration_path %>
+<% else %>
+  <% if current_user.following?(@user) %>
+    <%= link_to t('views.users.followings.destroy'), user_followings_path(@user), method: :delete %>
+  <% else %>
+    <%= link_to t('views.users.followings.create'), user_followings_path(@user), method: :post %>
+  <% end %>
 <% end %>
+|
 <%= link_to t('views.common.back'), users_path %>

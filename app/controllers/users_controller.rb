@@ -6,6 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.eager_load(:following_users, :follower_users).find(params[:id])
   end
 end
