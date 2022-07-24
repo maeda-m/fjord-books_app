@@ -1,0 +1,14 @@
+followed_by_alice_001:
+  follower: alice
+  following: bob
+followed_by_alice_002:
+  follower: alice
+  following: carol
+
+followed_by_bob_001:
+  follower: bob
+  following: alice
+
+followed_by_carol_001:
+  follower: carol
+  following: alice
