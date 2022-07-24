@@ -8,12 +8,12 @@ class BooksTest < ApplicationSystemTestCase
     login_by('alice@example.com')
   end
 
-  test 'visiting the index' do
+  test '本の一覧' do
     visit books_url
     assert_selector 'h1', text: '本'
   end
 
-  test 'creating a Book' do
+  test '本の新規作成' do
     visit books_url
     click_on '新規作成'
 
@@ -25,7 +25,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test 'updating a Book' do
+  test '本の編集' do
     visit books_url
     within 'table' do
       click_on '編集', match: :first
@@ -39,7 +39,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test 'destroying a Book' do
+  test '本の削除' do
     visit books_url
     page.accept_confirm do
       click_on '削除', match: :first

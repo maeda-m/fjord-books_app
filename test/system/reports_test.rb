@@ -7,15 +7,17 @@ class ReportsTest < ApplicationSystemTestCase
     @alice_report = reports(:alice_report)
   end
 
-  test 'メールアドレスとパスワードでログインして日報を書く' do
+  test '日報の新規作成' do
     login_by('alice@example.com')
     visit_reports_path_from_menu
 
     click_on '新規作成'
     assert_selector 'h1', text: '日報の新規作成'
 
-    fill_in 'タイトル', with: 'これは日報のタイトルです'
-    fill_in '内容', with: 'これは日報の内容です'
+    within 'form' do
+      fill_in 'タイトル', with: 'これは日報のタイトルです'
+      fill_in '内容', with: 'これは日報の内容です'
+    end
 
     assert_difference 'Report.count' do
       click_on '登録する'
@@ -25,6 +27,25 @@ class ReportsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '日報の詳細'
     assert_text 'これは日報のタイトルです'
     assert_text 'これは日報の内容です'
+  end
+
+  test '日報の新規作成（ビジネス例外）' do
+    login_by('alice@example.com')
+    visit new_report_path
+
+    assert_no_difference 'Report.count' do
+      click_on '登録する'
+    end
+
+    within 'form' do
+      assert_equal '', find('input[type=text]').value
+      assert_equal '', find('textarea').value
+    end
+
+    within 'div#error_explanation' do
+      assert_text 'タイトルを入力してください'
+      assert_text '内容を入力してください'
+    end
   end
 
   test '日報の編集' do
@@ -38,8 +59,10 @@ class ReportsTest < ApplicationSystemTestCase
       assert_equal @alice_report.content, find('textarea').value
     end
 
-    fill_in 'タイトル', with: 'アリスが更新した日報のタイトル'
-    fill_in '内容', with: 'アリスが更新した日報の内容'
+    within 'form' do
+      fill_in 'タイトル', with: 'アリスが更新した日報のタイトル'
+      fill_in '内容', with: 'アリスが更新した日報の内容'
+    end
 
     assert_no_difference 'Report.count' do
       click_on '更新する'
