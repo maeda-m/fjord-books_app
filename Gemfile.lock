@@ -98,6 +98,7 @@ GEM
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
     digest (3.1.0)
+    docile (1.4.0)
     dummy_text_jp (0.0.2)
     erubi (1.10.0)
     faker (2.20.0)
@@ -255,6 +256,12 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -320,6 +327,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (>= 6)
   selenium-webdriver (< 4)
+  simplecov
   spring
   sqlite3 (~> 1.4)
   tzinfo-data
