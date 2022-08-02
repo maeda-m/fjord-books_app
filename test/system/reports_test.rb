@@ -16,8 +16,8 @@ class ReportsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '日報の新規作成'
 
     within 'form' do
-      fill_in 'タイトル', with: 'これは日報のタイトルです'
-      fill_in '内容', with: 'これは日報の内容です'
+      fill_in 'タイトル', with: '2022年08月02日の日報'
+      fill_in '内容', with: 'リーダブルテストコードについて学びました。'
     end
 
     assert_difference 'Report.count', 1 do
@@ -26,8 +26,8 @@ class ReportsTest < ApplicationSystemTestCase
 
     assert_text '日報が作成されました。'
     assert_selector 'h1', text: '日報の詳細'
-    assert_text 'これは日報のタイトルです'
-    assert_text 'これは日報の内容です'
+    assert_text '2022年08月02日の日報'
+    assert_text 'リーダブルテストコードについて学びました。'
   end
 
   test '日報の新規作成（ビジネス例外）' do
