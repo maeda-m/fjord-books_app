@@ -57,8 +57,8 @@ class ReportsTest < ApplicationSystemTestCase
     find("a[href='#{edit_report_path(@alice_report)}']", text: '編集').click
     assert_selector 'h1', text: '日報の編集'
     within 'form' do
-      assert_equal @alice_report.title, find('input[type=text]').value
-      assert_equal @alice_report.content, find('textarea').value
+      assert_equal '2022年07月23日の日報', find('input[type=text]').value
+      assert_equal 'テスト技法について学びました。', find('textarea').value
     end
 
     within 'form' do
