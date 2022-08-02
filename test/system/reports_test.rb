@@ -19,7 +19,7 @@ class ReportsTest < ApplicationSystemTestCase
       fill_in '内容', with: 'これは日報の内容です'
     end
 
-    assert_difference 'Report.count' do
+    assert_difference 'Report.count', 1 do
       click_on '登録する'
     end
 

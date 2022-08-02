@@ -17,7 +17,7 @@ class CommentsTest < ApplicationSystemTestCase
       fill_in 'comment[content]', with: '1番目のコメントです。'
     end
 
-    assert_difference 'Comment.count' do
+    assert_difference 'Comment.count', 1 do
       click_on 'コメントする'
     end
 
@@ -37,7 +37,7 @@ class CommentsTest < ApplicationSystemTestCase
       fill_in 'comment[content]', with: '1番目のコメントです。'
     end
 
-    assert_difference 'Comment.count' do
+    assert_difference 'Comment.count', 1 do
       click_on 'コメントする'
     end
 
