@@ -1,10 +1,36 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/ClassLength
+
 require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
     @alice_report = reports(:alice_report)
+  end
+
+  test '日報の一覧' do
+    login_by('alice@example.com')
+    click_on '日報'
+    assert_selector 'h1', text: '日報'
+
+    within 'table' do
+      within 'thead' do
+        within 'tr', match: :first do
+          assert_text 'タイトル'
+          assert_text '作成者'
+          assert_text '作成日'
+        end
+      end
+
+      within 'tbody' do
+        within 'tr', match: :first do
+          assert_text '2022年07月29日の日報'
+          assert_text 'ボブ'
+          assert_text '2022/07/29'
+        end
+      end
+    end
   end
 
   test '日報の新規作成' do
@@ -112,5 +138,11 @@ class ReportsTest < ApplicationSystemTestCase
 
     assert_text '日報が削除されました。'
     assert_selector 'h1', text: '日報'
+
+    within 'table' do
+      assert_no_text '2022年07月23日の日報'
+    end
   end
 end
+
+# rubocop:enable Metrics/ClassLength
