@@ -9,7 +9,8 @@ class ReportsTest < ApplicationSystemTestCase
 
   test '日報の新規作成' do
     login_by('alice@example.com')
-    visit_reports_path_from_menu
+    click_on '日報'
+    assert_selector 'h1', text: '日報'
 
     click_on '新規作成'
     assert_selector 'h1', text: '日報の新規作成'
@@ -50,7 +51,8 @@ class ReportsTest < ApplicationSystemTestCase
 
   test '日報の編集' do
     login_by('alice@example.com')
-    visit_reports_path_from_menu
+    click_on '日報'
+    assert_selector 'h1', text: '日報'
 
     find("a[href='#{edit_report_path(@alice_report)}']", text: '編集').click
     assert_selector 'h1', text: '日報の編集'
@@ -99,7 +101,8 @@ class ReportsTest < ApplicationSystemTestCase
 
   test '日報の削除' do
     login_by('alice@example.com')
-    visit_reports_path_from_menu
+    click_on '日報'
+    assert_selector 'h1', text: '日報'
 
     assert_difference 'Report.count', -1 do
       page.accept_confirm do

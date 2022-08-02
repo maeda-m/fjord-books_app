@@ -18,9 +18,4 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     assert_text "#{email} としてログイン中"
     assert_selector 'h1', text: '本'
   end
-
-  def visit_reports_path_from_menu
-    click_on '日報'
-    assert_selector 'h1', text: '日報'
-  end
 end
