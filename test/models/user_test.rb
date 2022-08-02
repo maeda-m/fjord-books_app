@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
     @alice = users(:alice)
     @bob = users(:bob)
     @carol = users(:carol)
-    @noname = users(:noname)
+    @no_name = users(:no_name)
   end
 
   test '#following?(user)' do
@@ -48,6 +48,6 @@ class UserTest < ActiveSupport::TestCase
 
   test '#name_or_email' do
     assert_equal 'アリス', @alice.name_or_email
-    assert_equal 'noname@example.com', @noname.name_or_email
+    assert_equal 'no_name@example.com', @no_name.name_or_email
   end
 end

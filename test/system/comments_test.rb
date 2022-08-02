@@ -8,7 +8,7 @@ class CommentsTest < ApplicationSystemTestCase
   end
 
   test '本へのコメント' do
-    book = books(:one)
+    book = books(:ruby_chounyumon)
     visit book_path(book)
 
     assert_text 'コメントはまだありません'

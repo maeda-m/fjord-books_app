@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:one)
+    @book = books(:ruby_chounyumon)
     login_by('alice@example.com')
   end
 

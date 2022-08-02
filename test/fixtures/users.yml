@@ -1,23 +1,19 @@
 alice:
   name: アリス
   email: alice@example.com
-  # password
-  encrypted_password: "$2a$12$sU1ncvV8Ttqz6QjVUUxFb.lBoKBxk6MjKyESByNUFw0QcGSRqg2ba"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 bob:
   name: ボブ
   email: bob@example.com
-  # password
-  encrypted_password: "$2a$12$GGX83MtdNs3CTvZ14p6kCeHixbvVUWhlrxDN4.X.Zo8fN5h8VxHbm"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 carol:
   name: キャロル
   email: carol@example.com
-  # password
-  encrypted_password: "$2a$12$jxnPMYEQRFMCmc1JiY21uOFS3He1G0KNmqpy8s.sFbM26yVzbqgjy"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
-noname:
+no_name:
   name:
-  email: noname@example.com
-  # password
-  encrypted_password: "$2a$12$MtDWGru9xHPS3OWc1Cz3wOcBVQqtFw7K0EQ1u/B2Gyt3tL6ARWYJa"
+  email: no_name@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

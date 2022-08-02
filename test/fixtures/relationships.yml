@@ -1,14 +1,14 @@
-followed_by_alice_001:
+alice_is_following_bob:
   follower: alice
   following: bob
-followed_by_alice_002:
+alice_is_following_carol:
   follower: alice
   following: carol
 
-followed_by_bob_001:
+bob_is_following_alice:
   follower: bob
   following: alice
 
-followed_by_carol_001:
+carol_is_following_alice:
   follower: carol
   following: alice
