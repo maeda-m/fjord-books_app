@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require 'playwright_driver'
+require_relative 'support/playwright_driver'
 require 'capybara-screenshot/minitest'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
