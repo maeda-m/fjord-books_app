@@ -23,25 +23,21 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test '#follow(user)' do
-    assert_not @bob.following?(@carol)
-    assert_difference('Relationship.count', 1) do
+    assert_changes('@bob.following?(@carol)', from: false, to: true) do
       @bob.follow(@carol)
     end
-    assert @bob.following?(@carol)
 
-    assert_no_difference('Relationship.count') do
+    assert_no_changes('@bob.following?(@carol)', from: false) do
       @bob.follow(@carol)
     end
   end
 
   test '#unfollow(user)' do
-    assert @alice.following?(@bob)
-    assert_difference('Relationship.count', -1) do
+    assert_changes('@alice.following?(@bob)', from: true, to: false) do
       @alice.unfollow(@bob)
     end
-    assert_not @alice.following?(@bob)
 
-    assert_no_difference('Relationship.count') do
+    assert_no_changes('@alice.following?(@bob)', from: true) do
       @alice.unfollow(@bob)
     end
   end
