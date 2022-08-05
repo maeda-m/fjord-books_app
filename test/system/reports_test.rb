@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/ClassLength
-
 require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
@@ -138,5 +136,3 @@ class ReportsTest < ApplicationSystemTestCase
     end
   end
 end
-
-# rubocop:enable Metrics/ClassLength
