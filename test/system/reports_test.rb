@@ -65,8 +65,8 @@ class ReportsTest < ApplicationSystemTestCase
     end
 
     within 'form' do
-      assert_equal '', find('input[type=text]').value
-      assert_equal '', find('textarea').value
+      assert_field 'タイトル', with: ''
+      assert_field '内容', with: ''
     end
 
     within 'div#error_explanation' do
@@ -83,8 +83,8 @@ class ReportsTest < ApplicationSystemTestCase
     find("a[href='#{edit_report_path(@alice_report)}']", text: '編集').click
     assert_selector 'h1', text: '日報の編集'
     within 'form' do
-      assert_equal '2022年07月23日の日報', find('input[type=text]').value
-      assert_equal 'テスト技法について学びました。', find('textarea').value
+      assert_field 'タイトル', with: '2022年07月23日の日報'
+      assert_field '内容', with: 'テスト技法について学びました。'
     end
 
     within 'form' do
@@ -115,8 +115,8 @@ class ReportsTest < ApplicationSystemTestCase
 
     assert_selector 'h1', text: '日報の編集'
     within 'form' do
-      assert_equal '', find('input[type=text]').value
-      assert_equal '', find('textarea').value
+      assert_field 'タイトル', with: ''
+      assert_field '内容', with: ''
     end
 
     within 'div#error_explanation' do

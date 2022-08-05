@@ -59,9 +59,9 @@ class BooksTest < ApplicationSystemTestCase
     find("a[href='#{edit_book_path(book)}']", text: '編集').click
 
     within 'form' do
-      assert_equal 'チェリー本', find('[name="book[title]"]').value
-      assert_equal 'プログラミング経験者のためのRuby入門書です。', find('[name="book[memo]"]').value
-      assert_equal '伊藤 淳一', find('[name="book[author]"]').value
+      assert_field 'タイトル', with: 'チェリー本'
+      assert_field 'メモ', with: 'プログラミング経験者のためのRuby入門書です。'
+      assert_field '著者', with: '伊藤 淳一'
     end
 
     within 'form' do
