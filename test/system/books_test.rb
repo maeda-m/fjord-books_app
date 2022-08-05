@@ -85,6 +85,11 @@ class BooksTest < ApplicationSystemTestCase
     book = books(:cherry_bon)
 
     visit books_url
+
+    within 'table' do
+      assert_text 'チェリー本'
+    end
+
     assert_difference 'Book.count', -1 do
       page.accept_confirm do
         find("a[href='#{book_path(book)}']", text: '削除').click

@@ -130,6 +130,10 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '日報'
     assert_selector 'h1', text: '日報'
 
+    within 'table' do
+      assert_text '2022年07月23日の日報'
+    end
+
     assert_difference 'Report.count', -1 do
       page.accept_confirm do
         find("a[href='#{report_path(@alice_report)}']", text: '削除').click
