@@ -17,9 +17,7 @@ class CommentsTest < ApplicationSystemTestCase
       fill_in 'comment[content]', with: 'Ruby技術者認定試験の対策本におすすめです！'
     end
 
-    assert_difference 'Comment.count', 1 do
-      click_on 'コメントする'
-    end
+    click_on 'コメントする'
 
     assert_text 'コメントが投稿されました。'
     assert_selector 'h1', text: '本の詳細'
@@ -37,9 +35,7 @@ class CommentsTest < ApplicationSystemTestCase
       fill_in 'comment[content]', with: '素晴らしい日報ですね！'
     end
 
-    assert_difference 'Comment.count', 1 do
-      click_on 'コメントする'
-    end
+    click_on 'コメントする'
 
     assert_text 'コメントが投稿されました。'
     assert_selector 'h1', text: '日報の詳細'

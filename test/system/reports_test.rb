@@ -46,9 +46,7 @@ class ReportsTest < ApplicationSystemTestCase
       fill_in '内容', with: 'リーダブルテストコードについて学びました。'
     end
 
-    assert_difference 'Report.count', 1 do
-      click_on '登録する'
-    end
+    click_on '登録する'
 
     assert_text '日報が作成されました。'
     assert_selector 'h1', text: '日報の詳細'
@@ -60,9 +58,7 @@ class ReportsTest < ApplicationSystemTestCase
     login_by('alice@example.com')
     visit new_report_path
 
-    assert_no_difference 'Report.count' do
-      click_on '登録する'
-    end
+    click_on '登録する'
 
     within 'form' do
       assert_field 'タイトル', with: ''
@@ -92,9 +88,7 @@ class ReportsTest < ApplicationSystemTestCase
       fill_in '内容', with: 'アリスが更新した日報の内容'
     end
 
-    assert_no_difference 'Report.count' do
-      click_on '更新する'
-    end
+    click_on '更新する'
 
     assert_text '日報が更新されました。'
     assert_selector 'h1', text: '日報の詳細'
@@ -109,9 +103,7 @@ class ReportsTest < ApplicationSystemTestCase
     fill_in 'タイトル', with: ''
     fill_in '内容', with: ''
 
-    assert_no_difference 'Report.count' do
-      click_on '更新する'
-    end
+    click_on '更新する'
 
     assert_selector 'h1', text: '日報の編集'
     within 'form' do
@@ -134,10 +126,8 @@ class ReportsTest < ApplicationSystemTestCase
       assert_text '2022年07月23日の日報'
     end
 
-    assert_difference 'Report.count', -1 do
-      page.accept_confirm do
-        find("a[href='#{report_path(@alice_report)}']", text: '削除').click
-      end
+    page.accept_confirm do
+      find("a[href='#{report_path(@alice_report)}']", text: '削除').click
     end
 
     assert_text '日報が削除されました。'

@@ -41,9 +41,7 @@ class BooksTest < ApplicationSystemTestCase
       fill_in '著者', with: '羽生 章洋'
     end
 
-    assert_difference 'Book.count', 1 do
-      click_on '登録する'
-    end
+    click_on '登録する'
 
     assert_text '本が作成されました。'
     assert_selector 'h1', text: '本の詳細'
@@ -70,9 +68,7 @@ class BooksTest < ApplicationSystemTestCase
       fill_in '著者', with: '更新した本の著者'
     end
 
-    assert_no_difference 'Book.count' do
-      click_on '更新する'
-    end
+    click_on '更新する'
 
     assert_text '本が更新されました。'
     assert_selector 'h1', text: '本の詳細'
@@ -90,10 +86,8 @@ class BooksTest < ApplicationSystemTestCase
       assert_text 'チェリー本'
     end
 
-    assert_difference 'Book.count', -1 do
-      page.accept_confirm do
-        find("a[href='#{book_path(book)}']", text: '削除').click
-      end
+    page.accept_confirm do
+      find("a[href='#{book_path(book)}']", text: '削除').click
     end
 
     assert_text '本が削除されました。'
