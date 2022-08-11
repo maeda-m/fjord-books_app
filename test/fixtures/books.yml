@@ -1,9 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ruby_chounyumon:
+  title: Ruby超入門
+  memo: Rubyの文法の基本をやさしくていねいに解説しています。
+  author: 五十嵐 邦明
 
-one:
-  title: MyString
-  memo: MyText
-
-two:
-  title: MyString
-  memo: MyText
+cherry_bon:
+  title: チェリー本
+  memo: プログラミング経験者のためのRuby入門書です。
+  author: 伊藤 淳一
