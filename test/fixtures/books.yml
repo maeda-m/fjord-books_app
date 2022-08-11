@@ -1,11 +1,9 @@
 ruby_chounyumon:
-  id: 1
   title: Ruby超入門
   memo: Rubyの文法の基本をやさしくていねいに解説しています。
   author: 五十嵐 邦明
 
 cherry_bon:
-  id: 2
   title: チェリー本
   memo: プログラミング経験者のためのRuby入門書です。
   author: 伊藤 淳一

@@ -12,14 +12,13 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '日報'
     assert_selector 'h1', text: '日報'
 
-    within 'table' do
-      within 'tbody' do
-        within 'tr', match: :first do
-          assert_text '2022年07月29日の日報'
-          assert_text 'ボブ'
-          assert_text '2022/07/29'
-        end
-      end
+    reports = Report.order(id: :desc)
+    row_index = reports.find_index { |r| r.title == '2022年07月29日の日報' }
+
+    within all('table tbody tr')[row_index] do
+      assert_text '2022年07月29日の日報'
+      assert_text 'ボブ'
+      assert_text '2022/07/29'
     end
   end
 

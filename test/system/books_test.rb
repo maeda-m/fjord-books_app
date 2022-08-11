@@ -11,14 +11,13 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     assert_selector 'h1', text: '本'
 
-    within 'table' do
-      within 'tbody' do
-        within 'tr', match: :first do
-          assert_text 'チェリー本'
-          assert_text 'プログラミング経験者のためのRuby入門書です。'
-          assert_text '伊藤 淳一'
-        end
-      end
+    books = Book.order(id: :desc)
+    row_index = books.find_index { |b| b.title == 'チェリー本' }
+
+    within all('table tbody tr')[row_index] do
+      assert_text 'チェリー本'
+      assert_text 'プログラミング経験者のためのRuby入門書です。'
+      assert_text '伊藤 淳一'
     end
   end
 
