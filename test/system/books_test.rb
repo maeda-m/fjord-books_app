@@ -12,15 +12,6 @@ class BooksTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '本'
 
     within 'table' do
-      within 'thead' do
-        within 'tr', match: :first do
-          assert_text 'タイトル'
-          assert_text 'メモ'
-          assert_text '著者'
-          assert_text '画像'
-        end
-      end
-
       within 'tbody' do
         within 'tr', match: :first do
           assert_text 'チェリー本'

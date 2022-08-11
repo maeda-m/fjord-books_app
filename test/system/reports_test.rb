@@ -13,14 +13,6 @@ class ReportsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '日報'
 
     within 'table' do
-      within 'thead' do
-        within 'tr', match: :first do
-          assert_text 'タイトル'
-          assert_text '作成者'
-          assert_text '作成日'
-        end
-      end
-
       within 'tbody' do
         within 'tr', match: :first do
           assert_text '2022年07月29日の日報'
